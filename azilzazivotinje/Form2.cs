@@ -47,5 +47,10 @@ namespace azilzazivotinje
             string slika = OpenFileDialog1.FileName;
             pictureBox1.Load(slika);
         }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
