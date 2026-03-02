@@ -21,5 +21,14 @@ namespace azilzazivotinje
         {
 
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+                List<string> lista = Admin.Ucitaj();
+                foreach (string linija in lista)
+                {
+                    listBox1.Items.Add(linija.Replace('|',' '));
+                }
+        }
     }
 }
