@@ -35,16 +35,51 @@ namespace azilzazivotinje
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
             string slika = openFileDialog1.FileName;
+            string spol;
+            string kast = "";
+            string cije = "";
+            if (cbKast.Checked == true)
+            {
+                kast = "Da";
+            }
+            else {
+                kast = "Ne";
+            }
+            if (cbCije.Checked == true)
+            {
+               cije = "Da";
+            }
+            else
+            {
+                cije = "Ne";
+            }
+            if (rbM.Checked == true)
+            {
+                spol = "Muško";
+            }
+            else if (rbZ.Checked == true)
+            {
+                spol = "Žensko";
+            }
             string zapis = txtIme.Text + "|" + txtVrsta.Text + "|" + txtPasmina.Text + "|" + rbM.Checked + "|" + rbZ.Checked + "|" + numDob.Text + "|" + datum.Text + "|" + cbCije.Checked + "|" + cbKast.Checked + "|" + txtNapomena.Text + "|" + slika;
             Admin.Unos(zapis);
+            txtIme.Clear();
+            txtVrsta.Clear();
+            txtPasmina.Clear();
+            rbM.Checked = false;
+            rbZ.Checked = false;
+            numDob.Value = 0;
+            datum.Value = DateTime.Now;
+            cbCije.Checked = false;
+            cbKast.Checked = false;
+            txtNapomena.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            string slika = OpenFileDialog1.FileName;
+            string slika = openFileDialog1.FileName;
             pictureBox1.Load(slika);
         }
 
