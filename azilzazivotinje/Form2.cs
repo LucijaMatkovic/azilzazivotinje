@@ -41,18 +41,18 @@ namespace azilzazivotinje
             string cije = "";
             if (cbKast.Checked == true)
             {
-                kast = "Da";
+                kast = "Kastriran";
             }
             else {
-                kast = "Ne";
+                kast = "Nije kastriran";
             }
             if (cbCije.Checked == true)
             {
-               cije = "Da";
+               cije = "Cijepljen";
             }
             else
             {
-                cije = "Ne";
+                cije = "Nije cijepljen";
             }
             if (rbM.Checked == true)
             {
@@ -89,3 +89,4 @@ namespace azilzazivotinje
         }
     }
 }
+

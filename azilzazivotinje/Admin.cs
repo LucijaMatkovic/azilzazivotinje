@@ -22,7 +22,7 @@ namespace azilzazivotinje
             List<string> lista = new List<string>();
             StreamReader sr = new StreamReader("azil.txt");
             string linija = sr.ReadLine();
-          
+
             while (linija != null)
             {
                 lista.Add(linija);
@@ -31,5 +31,38 @@ namespace azilzazivotinje
             sr.Close();
             return lista;
         }
+        public static List<string> Vrste()
+        {
+            List<string> lista = new List<string>();
+            StreamReader sr = new StreamReader("azil.txt");
+            string linija = sr.ReadLine();
+            while (linija != null)
+            {
+                string[] dijelovi = linija.Split('|');
+                string vrsta = dijelovi[1];
+                lista.Add(vrsta);
+                linija = sr.ReadLine();
+            }
+            sr.Close();
+            return lista;
+        }
+        public static List<string> SearchByVrsta(string kriterij)
+        {
+            List<string> lista = new List<string>();
+            StreamReader sr = new StreamReader("azil.txt");
+            string linija = sr.ReadLine();
+            while (linija != null)
+            {
+                string[] dijelovi = linija.Split('|');
+                if (dijelovi[1] == kriterij)
+                {
+                    lista.Add(linija);
+                }
+                linija = sr.ReadLine();
+            }
+            sr.Close();
+            return lista;
+        }
+
     }
 }
