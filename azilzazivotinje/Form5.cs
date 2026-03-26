@@ -16,10 +16,36 @@ namespace azilzazivotinje
         {
             InitializeComponent();
         }
+        int i = 0;
+
+
+
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NaseZivotinje.Items.RemoveAt(i);
+            string zapis = textBox1.Text + "|" + textBox2.Text + "|" + textBox3.Text;
+            Admin.UnosUdomitelja(zapis);
+        }
+
+        private void Form5_Load(object sender, EventArgs e)
+        {
+            List<string> lista = Admin.Ucitaj();
+            foreach (string linija in lista)
+            {
+                NaseZivotinje.Items.Add(linija.Replace('|', ' '));
+            }
+        }
+
+        private void NaseZivotinje_DoubleClick(object sender, EventArgs e)
+        {
+            i = NaseZivotinje.SelectedIndex;
         }
     }
 }

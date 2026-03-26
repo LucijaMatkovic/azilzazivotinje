@@ -44,6 +44,7 @@ namespace azilzazivotinje
                 linija = sr.ReadLine();
             }
             sr.Close();
+            lista = lista.Distinct().ToList();
             return lista;
         }
         public static List<string> SearchByVrsta(string kriterij)
@@ -63,6 +64,50 @@ namespace azilzazivotinje
             sr.Close();
             return lista;
         }
+        public static void UnosUdomitelja(string zapis)
+        {
+            StreamWriter sw = new StreamWriter("udomitelji.txt", true);
+            sw.WriteLine(zapis);
+            sw.Close();
 
+        }
+        public static List<string> UcitajUdomitelje()
+        {
+            List<string> lista = new List<string>();
+            StreamReader sr = new StreamReader("udomitelji.txt");
+            string linija = sr.ReadLine();
+
+            while (linija != null)
+            {
+                lista.Add(linija);
+                linija = sr.ReadLine();
+            }
+            sr.Close();
+            return lista;
+        }
+       
+
+        public static List<string> VrsteBroj()
+        {
+            List<string> lista = Ucitaj();
+            List<string> lista2 = Vrste();
+            List<string> lista3 = new List<string>();
+            StreamReader sr = new StreamReader("azil.txt");
+
+            foreach (string vrsta in lista2)
+            {
+                int brojac = 0;
+                foreach (string linija in lista)
+                {
+                    string[] dijelovi = linija.Split('|');
+                    if (dijelovi[1] == vrsta)
+                    {
+                        brojac++;
+                    }
+                }
+                lista3.Add(vrsta + ": " + brojac);
+            }
+            return lista3;
+        }
     }
 }

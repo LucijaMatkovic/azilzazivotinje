@@ -21,5 +21,26 @@ namespace azilzazivotinje
         {
             comboBox1.DataSource = Admin.Vrste().Distinct().ToList();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            string kriterij =comboBox1.SelectedItem.ToString();
+            List<string> vrste = Admin.SearchByVrsta(kriterij);
+            foreach (string vrsta in vrste)
+            {
+                listBox1.Items.Add(vrsta.Replace('|', ' '));
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            List<string> lista = Admin.Ucitaj();
+            foreach (string linija in lista)
+            {
+                listBox1.Items.Add(linija.Replace('|', ' '));
+            }
+        }
     }
 }
