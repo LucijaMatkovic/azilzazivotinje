@@ -36,7 +36,7 @@ namespace azilzazivotinje
         private void button1_Click(object sender, EventArgs e)
         {
             string slika = openFileDialog1.FileName;
-            string spol;
+            string spol = "";
             string kast = "";
             string cije = "";
             if (cbKast.Checked == true)
